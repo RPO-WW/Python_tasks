@@ -1,21 +1,37 @@
-x = int(input("Введите число x: "))
-a = int(input("Введите число a: "))
-b = int(input("Введите число b: "))
-c = int(input("Введите число c: "))
-m = int(input("Введите число m: "))
-n = int(input("Введите число n: "))
+
+expression_a = "-1 / x**2"
+
+expression_b = "(a + b) / 2"
 
 
-print(f"a) -1 / x * x = {round(-1 / x * x, 2)}")
-print(f"б) a / (b * c) = {round(a / (b * c), 2)}")
-print(f"в) a / b * c = {round(a / b * c, 2)}")
-print(f"г) (a + b) / c = {round((a + b) / c, 2)}")
-print(f"д) 5.45 * ((a + 2 * b) / (2 - a)) = \
-    {round(5.45 * ((a + 2 * b) / (2 - a)), 2)}")
-print(f"е) (-b + (b * b - 4 * a * c) ** 0.5) / (2 * a) = \
-    {round((-b + (b * b - 4 * a * c) ** 0.5) / (2 * a), 2)} ")
-print(f"ж) (-b + 1 / a) / (2 / c) = {round((-b + 1 / a) / (2 / c), 2)}")
-print(f"з) 1 / (1 + ((a + b) / 2)) = {round(1 / (1 + ((a + b) / 2)), 2)}")
-print(f"и) 1 / (1 + (1 / (2 + (1 / (2 + 3 / 5))))) = \
-    {round(1 / (1 + (1 / (2 + (1 / (2 + 3 / 5))))), 2)}")
-print(f"к) (2 ** m) ** n = {round((2 ** m) ** n, 2)}")
+expression_c = "(-b + 1/a) / 2"
+
+
+expression_d = "2**(n'')"
+
+
+expression_6 = "a / (b * c)"
+
+
+expression_7 = "5.45 * (a + 2*b) / (2 - a)"
+
+
+expression_8 = "3 / (1 + (a + b) / 2)"
+
+
+expression_9 = "a / b"
+
+
+expression_10 = "(-b + (b**2 - 4*a*c)**0.5) / (2*a)"
+
+
+expression_11 = "1 / (1 + 1/2 + 1 / (2 + 3/5))"
+
+
+expressions = [expression_a, expression_b, expression_c, expression_d,
+               expression_6, expression_7, expression_8, expression_9,
+               expression_10, expression_11
+               ]
+
+for i, expr in enumerate(expressions, start=1):
+    print(f"Expression {i}: {expr}")

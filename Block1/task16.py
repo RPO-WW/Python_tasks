@@ -1,30 +1,31 @@
-from math import sin, radians, cos
+expression_a = "a / b / c"
 
-a = int(input("Введите число a: "))
-b = int(input("Введите число b: "))
-c = int(input("Введите число c: "))
-x = int(input("Введите число x: "))
-d = int(input("Введите число d: "))
-R = 8.31
+expression_b = "a - b / c"
 
-print(f"a) a / b / c = {round(a / b / c, 2)}")
-print(f"б) a * b / c = {round(a * b / c, 2)}")
-print(f"в) a / b + c = {round(a / b + c, 2)}")
-print(f"г) a + b / c = {round(a + b / c, 2)}")
-print(f"д) (a + b) / c = {round((a + b) / c, 2)}")
-print(f"е) a + b / b + c = {round(a + b / b + c, 2)}")
-print(f"ж) (a + b) / (b + c) = {round((a + b) / (b + c), 2)}")
-print(f"з) a / sin(b) = {round(a / sin(radians(b)), 2)}")
-print(f"и) 1 / 2 * a * b * sin(rasians(x)) = \
-    {round(1 / 2 * a * b * sin(radians(c)), 2)}")
-print(f"к) (2 * b * c * cos(radians(a / 2)) / (b + c)) = \
-    {round((2 * b * c * cos(radians(a / 2)) / (b + c)), 2)}")
-print(f"л) 4 * R * sin(radians(a / 2) * \
-        sin(radians(b / 2)) * sin(radians(c / 2))) = \
-            {round(4 * R * sin(radians(a / 2) * sin(radians(b / 2)) * sin(
-                        radians(c / 2))), 2)}")
-print(f"м) (a * x + b) / (c * x + d) = {round((a * x + b) / (c * x + d), 2)}")
-print(f"н) (2 * sin(radians(a + b)) / 2 * cos(radians(a - b)) / 2) = \
-    {round((2 * sin(radians(a + b)) / 2 * cos(radians(a - b)) / 2), 2)}")
-print(f"о) abs(2 * sin(radians(-3 * abs(x / 2))) = \
-    {abs(2 * sin(radians(-3 * abs(x / 2))))}")
+expression_c = "a + b / c"
+
+expression_d = "(a + b) / (b + c)"
+
+expression_e = "a + b / (b + c)"
+
+expression_f = "(a + b) / b + c"
+
+expression_g = "a / 2 * b * c * a * b * x"
+
+expression_h = "2 * b * c * math.cos(a / 2) / (b + c)"
+
+expression_i = "4 * R * math.sin(a / 2) * math.sin(b / 2) * math.sin(c / 2)"
+
+expression_j = "(a * x + b) / (c * x + d)"
+
+expression_k = "2 * math.sin((a + b) / 2) * math.cos((a - b) / 2)"
+
+expression_l = "abs(2 * math.sin(-3 * abs(x / 2)))"
+
+expressions = [
+    expression_a, expression_b, expression_c, expression_d,
+    expression_e, expression_f, expression_g, expression_h,
+    expression_i, expression_j, expression_k, expression_l
+    ]
+for i, expr in enumerate(expressions, start=1):
+    print(f"Expression {chr(96 + i)}: {expr}")
