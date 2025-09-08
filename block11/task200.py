@@ -8,7 +8,8 @@ def print_elements_after_n(arr, n):
         if num > n:
             result = arr[i+1:]
             if result:
-                print("Элементы, следующие за первым элементом >", n, ":", result)
+                print
+                ("Элементы, следующие за первым элементом >", n, ":", result)
                 print(f"Количество элементов: {len(result)}")
             else:
                 print("После первого элемента >", n, "нет следующих элементов")
