@@ -1,19 +1,26 @@
+from random import randint
+
+arr = sorted([randint(1, 1000) for i in range(100)])
+
+
 def print_elements_after_n(arr, n):
-    # Проверяем, есть ли элементы больше n
-    found = False
-    for i in range(len(arr)):
-        if arr[i] > n:
-            found = True
+    for i, num in enumerate(arr):
+        if num > n:
+            result = arr[i+1:]
+            if result:
+                print
+                ("Элементы, следующие за первым элементом >", n, ":", result)
+                print(f"Количество элементов: {len(result)}")
+            else:
+                print("После первого элемента >", n, "нет следующих элементов")
+            return
 
-            for j in range(i, len(arr)):
-                print(arr[j], end=' ')
-            print()
-            break
-
-    if not found:
-        print("В массиве нет элементов, больших", n)
+    print("В массиве нет элементов, больших", n)
 
 
-arr = [1, 3, 5, 7, 9, 11]
-n = 6
-print_elements_after_n(arr, n)
+print("Массив (первые 10 элементов):", arr[:10])
+print_elements_after_n(arr, 500)
+print("-" * 50)
+print_elements_after_n(arr, 900)
+print("-" * 50)
+print_elements_after_n(arr, 1000)
