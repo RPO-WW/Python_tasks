@@ -1,13 +1,17 @@
 name: Pylint
 
-on: [push]
+on:
+  push:
+    branches: [main, master] # Можно изменить список ветвей
+  pull_request:
+    types: [opened, reopened, synchronized]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.11", "3.12", "3.13"]  # Список поддерживаемых версий Python
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -21,3 +25,4 @@ jobs:
     - name: Analyze the code with pylint
       run: |
         find . -type f -name "*.py" | xargs pylint
+      continue-on-error: false # Важно: остановка сборки при ошибках pylint
