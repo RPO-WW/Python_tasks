@@ -1,36 +1,28 @@
-def process_array(arr, a):
-    """
-    Обрабатывает массив, упорядоченный по убыванию.
-    Находит первый элемент, меньший a, и выводит требуемые элементы.
-    """
-    # Проверка, что массив упорядочен по убыванию
+def process_array_optimized(arr, a):
+    # Проверка упорядоченности
     if not all(arr[i] >= arr[i+1] for i in range(len(arr)-1)):
         print("Ошибка: массив не упорядочен по убыванию!")
         return
     
-    # Поиск первого элемента, меньшего a
+    # Бинарный поиск первого элемента < a
+    left, right = 0, len(arr) - 1
     first_smaller_index = None
-    for i, num in enumerate(arr):
-        if num < a:
-            first_smaller_index = i
-            break
+    
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] < a:
+            first_smaller_index = mid
+            right = mid - 1  # Ищем первое вхождение
+        else:
+            left = mid + 1
     
     if first_smaller_index is None:
         print("В массиве нет элементов, меньших заданного числа a.")
         return
     
-    # Элементы, следующие за первым меньшим a
     following_elements = arr[first_smaller_index + 1:]
-    
-    # Все элементы, большие a
-    greater_than_a = [num for num in arr if num > a]
+    greater_than_a = arr[:first_smaller_index]  # Более эффективно
     
     print(f"Первое число, меньшее {a}: {arr[first_smaller_index]} (индекс {first_smaller_index})")
     print("Элементы, следующие за ним:", following_elements)
     print("Все элементы, большие a:", greater_than_a)
-
-# Пример использования
-array = [10, 8, 7, 5, 4, 3, 2, 1]  # упорядочен по убыванию
-a = 6
-
-process_array(array, a)
